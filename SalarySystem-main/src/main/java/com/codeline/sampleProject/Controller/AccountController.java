@@ -32,14 +32,9 @@ public class AccountController {
         acount.setBankName("mithaq");
         acount.setAccountNumber("12345678912345");
         acount.setIsActive(true);
-        AccountService.saveAccount(acount);
-
-
-
-
-
-
-
+        accountService.saveAccount(acount);
 
     }
+
+
 }
