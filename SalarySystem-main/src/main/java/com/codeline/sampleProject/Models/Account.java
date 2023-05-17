@@ -11,13 +11,9 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Account extends BaseEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
-    @JoinColumn( name= "account_id", referencedColumnName = "id")
-    @OneToOne(cascade = CascadeType.ALL)
-
 
     String bankName;
 

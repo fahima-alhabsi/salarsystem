@@ -24,10 +24,7 @@ public class EmployeeController {
         return employeeService.getEmployees();
     }
 
-    @RequestMapping("employee/get")
-    public List<Employee> getEmployee () {
-        return employeeService.getEmployees();
-    }
+
     public void createEmployee() {
 
         Employee employee = new Employee();

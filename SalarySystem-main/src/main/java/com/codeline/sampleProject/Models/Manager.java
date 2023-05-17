@@ -14,20 +14,20 @@ import java.util.List;
 public class Manager extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
 
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     @OneToOne(cascade = CascadeType.ALL)
-    Employee employee;
+    private Employee employee;
 
-    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    @JoinColumn(name = "team_id", referencedColumnName = "id")
     @OneToMany(cascade = CascadeType.ALL)
-    List<Employee> team;
+    private List<Employee> team;
 
-    String department;
+    private String department;
 
-    String teamName;
+    private String teamName;
 
 
 }
