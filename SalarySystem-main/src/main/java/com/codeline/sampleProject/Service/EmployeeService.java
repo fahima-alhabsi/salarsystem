@@ -32,16 +32,17 @@ public class EmployeeService {
         {
             Employee employee =  optionalEmployee.get();
             GetEmployeeResponse employeeResponse = new GetEmployeeResponse(employee.getName(),
-                    employee.getGender(), employee.getDepartment(), employee.getSalary());
+                    employee.getGender(), employee.getDepartment());
             return employeeResponse;
         }
 
         return null;
 
  }
-    public static GetEmployeeResponse getempAsString(Employee e) {
-        GetEmployeeResponse employeeResponse = new GetEmployeeResponse(e.getName(), e.getGender(), e.getDepartment(), e.getSalary()
+    public  GetEmployeeResponse getempAsString(Employee e) {
+        GetEmployeeResponse employeeResponse = new GetEmployeeResponse(e.getName(), e.getGender(), e.getDepartment()
              );
+
         return employeeResponse;
     }
 

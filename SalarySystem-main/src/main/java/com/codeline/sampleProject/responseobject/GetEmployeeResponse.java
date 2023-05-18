@@ -14,5 +14,5 @@ public class GetEmployeeResponse {
     String Gender;
 
     String department;
-    Double salary;
+
 }

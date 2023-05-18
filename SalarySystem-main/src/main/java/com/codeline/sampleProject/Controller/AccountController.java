@@ -41,19 +41,5 @@ public class AccountController {
         account.setIsActive(true);
         accountService.saveAccount(account);
     }
-    @GetMapping("Employee/quer")
-    @ResponseBody
-    public String getaccountQueryString(@RequestParam String a, @RequestParam int b, @RequestParam String c, @RequestParam String d)
-            throws JsonProcessingException {
-        Employee emp = new Employee();
-        emp.setName(a);
-        emp.setSalary((double) b);
-        emp.setGender(c);
-        emp.setDepartment(d);
-        ObjectMapper mapper = new ObjectMapper();
-        System.out.println(emp.getGender());
-        String s = mapper.writeValueAsString(EmployeeService.getempAsString(emp));
-        System.out.print(s);
-        return s;
-    }
+
 }
