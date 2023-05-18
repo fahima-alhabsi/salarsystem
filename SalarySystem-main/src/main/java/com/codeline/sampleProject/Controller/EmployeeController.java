@@ -49,7 +49,7 @@ public class EmployeeController {
     public void deleteeemployee (@PathVariable Long Id) {
         employeeService.deleteEmployeeById(Id);
     }
-    @PostMapping ("Employee/query")
+    @GetMapping ("Employee/query")
     @ResponseBody
     public String getemployeeQueryString(@RequestParam String a, @RequestParam String c, @RequestParam String d)
             throws JsonProcessingException {
