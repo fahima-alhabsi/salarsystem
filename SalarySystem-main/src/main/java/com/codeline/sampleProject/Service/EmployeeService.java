@@ -39,7 +39,11 @@ public class EmployeeService {
         return null;
 
  }
-
+    public static GetEmployeeResponse getempAsString(Employee e) {
+        GetEmployeeResponse employeeResponse = new GetEmployeeResponse(e.getName(), e.getGender(), e.getDepartment(), e.getSalary()
+             );
+        return employeeResponse;
+    }
 
 
 }
