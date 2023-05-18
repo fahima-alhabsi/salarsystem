@@ -43,6 +43,9 @@ public class EmployeeController {
         employee.setIsActive(true);
         employeeService.saveEmployee(employee);
     }
-
+    @RequestMapping("employee/delete/{Id}")
+    public void deleteeemployee (@PathVariable Long Id) {
+        employeeService.deleteEmployeeById(Id);
+    }
 
 }
