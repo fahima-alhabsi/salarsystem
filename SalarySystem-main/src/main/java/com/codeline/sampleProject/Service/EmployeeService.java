@@ -5,6 +5,8 @@ import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.Repository.EmployeeRepository;
 import com.codeline.sampleProject.responseobject.GetEmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +22,27 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
+
+
+    public List<Employee> getEmployeesByDepartment(String department) {
+        Employee exampleEmployee = new Employee();
+        exampleEmployee.setDepartment(department);
+
+        ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues();
+        Example<Employee> example = Example.of(exampleEmployee, matcher);
+
+        return employeeRepository.findAll(example);
+    }
+
+
+
+
+
+
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
     }
-    public void deleteEmployeeById(Long employeeId) {
-        employeeRepository.deleteById(employeeId);
-    }
+
     public GetEmployeeResponse getEmployeeById(Long employeeId) {
         Optional<Employee> optionalEmployee =  employeeRepository.findById(employeeId);
         if(!optionalEmployee.isEmpty())

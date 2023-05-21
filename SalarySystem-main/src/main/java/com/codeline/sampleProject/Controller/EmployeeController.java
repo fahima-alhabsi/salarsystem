@@ -45,10 +45,7 @@ public class EmployeeController {
         employee.setIsActive(true);
         employeeService.saveEmployee(employee);
     }
-    @RequestMapping("employee/delete/{Id}")
-    public void deleteeemployee (@PathVariable Long Id) {
-        employeeService.deleteEmployeeById(Id);
-    }
+
     @GetMapping ("Employee/query")
     @ResponseBody
     public String getemployeeQueryString(@RequestParam String a, @RequestParam String c, @RequestParam String d)
@@ -62,5 +59,15 @@ public class EmployeeController {
         String s = mapper.writeValueAsString(employeeService.getempAsString(emp));
         System.out.print(s);
         return s;
+    }
+    @RequestMapping(value = "employee/get", method = RequestMethod.GET)
+    public List<Employee> getEmployees(@RequestParam(value = "department", required = false) String department) {
+        if (department != null) {
+            // Logic to filter employees by department
+            return employeeService.getEmployeesByDepartment(department);
+        } else {
+            // Return all employees
+            return employeeService.getEmployees();
+        }
     }
 }
